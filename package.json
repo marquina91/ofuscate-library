@@ -2,16 +2,15 @@
   "name": "security-libs",
   "version": "1.0.0",
   "description": "libraries to secure applications",
-  "main": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
+  "main": "src/index.js",
   "source": "src/index.js",
   "scripts": {
-    "test": "jest",
-    "build": "microbundle",
-    "prebuild": "npm test",
-    "postbuild": "node ofuscate.js",
-    "prepublish": "npm run build"
+    "postpublish": "git push origin --follow-tags",
+    "posttest": "eslint test/*.js lib/*.js",
+    "postversion": "npm publish",
+    "preversion": "npm test",
+    "test": "mocha --delay",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -61,9 +60,6 @@
     "index.d.ts",
     "index.js.flow",
     "package.json",
-    "README.md"
-  ],
-  "dependencies": {
-    "@sergiodxa/my-module": "^1.0.0"
-  }
+    "CHANGELOG.md" 
+  ]
 }

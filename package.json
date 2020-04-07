@@ -57,7 +57,7 @@
     ]
   },
   "files": [
-    "dist",
+    "src",
     "index.d.ts",
     "index.js.flow",
     "package.json",
